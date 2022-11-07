@@ -1,0 +1,88 @@
+{
+    "category": [
+        {
+            "id": 1,
+            "name": "Fantasy"
+        },
+        {
+            "id": 2,
+            "name": "Sci-Fi"
+        },
+        {
+            "id": 3,
+            "name": "Mystery"
+        },
+        {
+            "id": 4,
+            "name": "Thriller"
+        },
+        {
+            "id": 5,
+            "name": "Romance"
+        },
+        {
+            "id": 6,
+            "name": "Westerns"
+        },
+        {
+            "id": 7,
+            "name": "Dystopian"
+        },
+        {
+            "id": 8,
+            "name": "Horror"
+        }
+    ],
+    "best_seller": [
+        {
+            "id": "s1",
+            "name": "Imaginary Friend by Stephen Chbosky Visit",
+            "category": 7,
+            "price": 220
+        },
+        {
+            "id": "s2",
+            "name": "Harry Potter and the Prisoner of Azkaban | Harry Potter Wiki | Fandom",
+            "category": 1,
+            "price": 150
+        },
+        {
+            "id": "s3",
+            "name": "The Hobbit: The Battle of the Five Armies (Extended Edition) | Movies Anywhere",
+            "category": 2,
+            "price": 340
+        },
+        {
+            "id": "s4",
+            "name": "The Last True Love Story | Book by Brendan Kiely | Official Publisher Page | Simon & Schuster",
+            "category": 4,
+            "price": 180
+        }
+    ],
+    "new_arrivals": [
+        {
+            "id": "n1",
+            "name": "Imaginary Friend by Stephen Chbosky Visit",
+            "category": 4,
+            "price": 340
+        },
+        {
+            "id": "n2",
+            "name": "Scary Stories for Kids - Short Horror Stories for Children: (Children's Books and Books for Kids)",
+            "category": 7,
+            "price": 160
+        },
+        {
+            "id": "n3",
+            "name": "24 Best Romance Novels and Most Romantic Stories to Read in 2022",
+            "category": 2,
+            "price": 223
+        },
+        {
+            "id": "n4",
+            "name": "THRILLER SHORT STORIES: Mystery, Detective, Suspense, and Psychological Fiction by M.B. Mysteries",
+            "category": 4,
+            "price": 455
+        }
+    ]
+}
