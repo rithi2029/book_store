@@ -31,9 +31,22 @@ class _ItemWidgetState extends State<ItemWidget> {
     print("dvibevieub" + _items.toString());
   }
 
+  Color themeColor = Colors.white;
+
   @override
   void initState() {
+    // TODO: implement initState
+    super.initState();
     getData();
+
+    GlobalColors().colorTheme().then((value) {
+      getData();
+
+      setState(() {
+        themeColor = value;
+      });
+      // do functions requiring value parameter
+    });
   }
 
   @override
@@ -79,7 +92,7 @@ class _ItemWidgetState extends State<ItemWidget> {
                                   padding: EdgeInsets.all(4),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
-                                      color: GlobalColors.primaryColor),
+                                      color: themeColor),
                                   child: TextWidget(
                                     textColors: GlobalColors.white,
                                     fontWeight: FontWeight.bold,
@@ -112,7 +125,7 @@ class _ItemWidgetState extends State<ItemWidget> {
                                 height: constraints.maxHeight * 0.1,
                                 alignment: Alignment.centerLeft,
                                 child: TextWidget(
-                                  textColors: GlobalColors.primaryColor,
+                                  textColors: themeColor,
                                   fontWeight: FontWeight.bold,
                                   fntSize: constraints.maxHeight * 0.035,
                                   content:
@@ -138,7 +151,7 @@ class _ItemWidgetState extends State<ItemWidget> {
                             margin: EdgeInsets.symmetric(
                                 horizontal: constraints.maxWidth * 0.01),
                             child: TextWidget(
-                              textColors: GlobalColors.primaryColor,
+                              textColors: themeColor,
                               fontWeight: FontWeight.bold,
                               fntSize: constraints.maxHeight * 0.035,
                               content: _items[i]["name"],
@@ -165,7 +178,7 @@ class _ItemWidgetState extends State<ItemWidget> {
                                     ),
                                   ),
                                   Icon(Icons.shopping_cart_checkout_rounded,
-                                      color: GlobalColors.primaryColor)
+                                      color: themeColor)
                                 ],
                               ),
                             ),

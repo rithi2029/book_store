@@ -25,9 +25,20 @@ class _CategoryScreenState extends State<CategoryScreen> {
     });
   }
 
+  Color themeColor = Colors.white;
+
   @override
   void initState() {
+    // TODO: implement initState
+    super.initState();
     getData();
+
+    GlobalColors().colorTheme().then((value) {
+      setState(() {
+        themeColor = value;
+      });
+      // do functions requiring value parameter
+    });
   }
 
   @override
@@ -70,7 +81,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           child: Container(
                             alignment: Alignment.bottomCenter,
                             child: TextWidget(
-                              textColors: GlobalColors.primaryColor,
+                              textColors: themeColor,
                               fontWeight: FontWeight.bold,
                               fntSize: constraints.maxHeight * 0.1,
                               content: _items[i - 1]["name"],

@@ -11,13 +11,28 @@ class IconWidget extends StatefulWidget {
 }
 
 class _IconWidgetState extends State<IconWidget> {
+  Color themeColor = Colors.white;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    GlobalColors().colorTheme().then((value) {
+      setState(() {
+        themeColor = value;
+      });
+      // do functions requiring value parameter
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () => ZoomDrawer.of(context)!.toggle(),
       icon: Icon(
         Icons.sort,
-        color: GlobalColors.primaryColor,
+        color: themeColor,
       ),
     );
   }

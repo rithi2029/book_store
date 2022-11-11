@@ -35,8 +35,19 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  Color themeColor = Colors.white;
+
   @override
   void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    GlobalColors().colorTheme().then((value) {
+      setState(() {
+        themeColor = value;
+      });
+      // do functions requiring value parameter
+    });
     if (widget.index == null) {
       setState(() {
         _selectedIndex = 0;
@@ -46,8 +57,6 @@ class _HomeScreenState extends State<HomeScreen> {
         _selectedIndex = widget.index!;
       });
     }
-    // TODO: implement initState
-    super.initState();
   }
 
   @override
@@ -83,35 +92,35 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
             child: GNav(
-              rippleColor: GlobalColors.primaryColor,
+              rippleColor: themeColor,
               hoverColor: Colors.grey[100]!,
               gap: 8,
               activeColor: GlobalColors.white,
               iconSize: 24,
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               duration: Duration(milliseconds: 300),
-              tabBackgroundColor: GlobalColors.primaryColor,
+              tabBackgroundColor: themeColor,
               color: Colors.black,
               tabs: [
                 GButton(
                   icon: Icons.home_outlined,
                   text: 'Home',
-                  iconColor: GlobalColors.primaryColor,
+                  iconColor: themeColor,
                 ),
                 GButton(
                   icon: Icons.favorite_border,
                   text: 'WishList',
-                  iconColor: GlobalColors.primaryColor,
+                  iconColor: themeColor,
                 ),
                 GButton(
                   icon: Icons.person_outline,
                   text: 'Profile',
-                  iconColor: GlobalColors.primaryColor,
+                  iconColor: themeColor,
                 ),
                 GButton(
                   icon: Icons.settings_outlined,
                   text: 'Setting',
-                  iconColor: GlobalColors.primaryColor,
+                  iconColor: themeColor,
                 ),
               ],
               selectedIndex: _selectedIndex,

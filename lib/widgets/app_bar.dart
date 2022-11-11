@@ -26,6 +26,20 @@ class HomeAppBar extends StatefulWidget {
 
 class _HomeAppBarState extends State<HomeAppBar> {
   String _selectedMenu = '';
+  Color themeColor = Colors.white;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    GlobalColors().colorTheme().then((value) {
+      setState(() {
+        themeColor = value;
+      });
+      // do functions requiring value parameter
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +62,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
                   Padding(
                     padding: EdgeInsets.only(left: constraints.maxWidth * 0.09),
                     child: TextWidget(
-                      textColors: GlobalColors.primaryColor,
+                      textColors: themeColor,
                       fontWeight: FontWeight.bold,
                       fntSize: constraints.maxWidth * 0.05,
                       content: widget.content,
@@ -65,7 +79,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
                               borderRadius: BorderRadius.circular(20)),
                           child: Icon(
                             Icons.more_vert_outlined,
-                            color: GlobalColors.primaryColor,
+                            color: themeColor,
                           ),
                           itemBuilder: (BuildContext context) =>
                               <PopupMenuEntry>[
@@ -91,9 +105,9 @@ class _HomeAppBarState extends State<HomeAppBar> {
                                     builder: (context) => CartScreen()),
                               );
                             },
-                            child: const Icon(
+                            child: Icon(
                               Icons.shopping_bag_outlined,
-                              color: GlobalColors.primaryColor,
+                              color: themeColor,
                             ),
                           ),
                         )

@@ -18,6 +18,20 @@ class CheckOutScreen extends StatefulWidget {
 }
 
 class _CheckOutScreenState extends State<CheckOutScreen> {
+  Color themeColor = Colors.white;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    GlobalColors().colorTheme().then((value) {
+      setState(() {
+        themeColor = value;
+      });
+      // do functions requiring value parameter
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -41,14 +55,14 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                     },
                     icon: Icon(
                       Icons.arrow_back,
-                      color: GlobalColors.primaryColor,
+                      color: themeColor,
                     ),
                   ),
                   Container(
                     height: height * 0.06,
                     width: width * 0.5,
                     decoration: BoxDecoration(
-                        color: GlobalColors.primaryColor,
+                        color: themeColor,
                         borderRadius: BorderRadius.circular(10)),
                     padding: EdgeInsets.all(4),
                     child: Center(
@@ -81,10 +95,8 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                       width: width,
                       child: ExpansionTile(
                         initiallyExpanded: true,
-                        iconColor: GlobalColors.primaryColor,
-                        collapsedIconColor: GlobalColors.primaryColor,
                         title: TextWidget(
-                            textColors: GlobalColors.primaryColor,
+                            textColors: themeColor,
                             fontWeight: FontWeight.bold,
                             fntSize: width * 0.04,
                             content: "CUSTOMER INFORMATIONS"),
@@ -107,11 +119,8 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                     child: Container(
                       width: width,
                       child: ExpansionTile(
-                        initiallyExpanded: true,
-                        iconColor: GlobalColors.primaryColor,
-                        collapsedIconColor: GlobalColors.primaryColor,
                         title: TextWidget(
-                            textColors: GlobalColors.primaryColor,
+                            textColors: themeColor,
                             fontWeight: FontWeight.bold,
                             fntSize: width * 0.04,
                             content: "Delivery INFORMATIONS"),
@@ -140,10 +149,8 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                     child: Container(
                       width: width,
                       child: ExpansionTile(
-                        iconColor: GlobalColors.primaryColor,
-                        collapsedIconColor: GlobalColors.primaryColor,
                         title: TextWidget(
-                            textColors: GlobalColors.primaryColor,
+                            textColors: themeColor,
                             fontWeight: FontWeight.bold,
                             fntSize: width * 0.04,
                             content: "SELECT PAYMENT METHOD"),
@@ -156,10 +163,10 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                                   value: "",
                                   groupValue: "",
                                   onChanged: (index) {},
-                                  activeColor: GlobalColors.primaryColor,
+                                  activeColor: themeColor,
                                 ),
                                 TextWidget(
-                                    textColors: GlobalColors.primaryColor,
+                                    textColors: themeColor,
                                     fontWeight: FontWeight.normal,
                                     fntSize: width * 0.036,
                                     content: "Cash On Delivery")
@@ -175,10 +182,10 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                                   value: "",
                                   groupValue: "",
                                   onChanged: (index) {},
-                                  activeColor: GlobalColors.primaryColor,
+                                  activeColor: themeColor,
                                 ),
                                 TextWidget(
-                                    textColors: GlobalColors.primaryColor,
+                                    textColors: themeColor,
                                     fontWeight: FontWeight.normal,
                                     fntSize: width * 0.036,
                                     content: "Direct Debit")
@@ -193,7 +200,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                     margin: EdgeInsets.symmetric(vertical: 10),
                     padding: const EdgeInsets.symmetric(horizontal: 30.0),
                     child: TextWidget(
-                        textColors: GlobalColors.primaryColor,
+                        textColors: themeColor,
                         fontWeight: FontWeight.w600,
                         fntSize: width * 0.040,
                         content: "ORDER SUMMARY"),
@@ -203,8 +210,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                     width: width,
                     height: height * 0.07,
                     decoration: BoxDecoration(
-                        border: Border(
-                            top: BorderSide(color: GlobalColors.primaryColor))),
+                        border: Border(top: BorderSide(color: themeColor))),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -248,19 +254,19 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                     margin: EdgeInsets.symmetric(horizontal: 30),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: GlobalColors.primaryColor)),
+                        border: Border.all(color: themeColor)),
                     height: height * 0.05,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         TextWidget(
-                            textColors: GlobalColors.primaryColor,
+                            textColors: themeColor,
                             fontWeight: FontWeight.w600,
                             fntSize: width * 0.035,
                             content: "Total "),
                         TextWidget(
-                            textColors: GlobalColors.primaryColor,
+                            textColors: themeColor,
                             fontWeight: FontWeight.w600,
                             fntSize: width * 0.035,
                             content: "\$10.97 ")
@@ -274,7 +280,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
         ),
         bottomNavigationBar: Container(
           height: height * 0.1,
-          color: GlobalColors.primaryColor,
+          color: themeColor,
           child: Center(
               child: Center(
             child: ElevatedButton(
@@ -290,7 +296,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                 );
               },
               child: TextWidget(
-                  textColors: GlobalColors.primaryColor,
+                  textColors: themeColor,
                   fontWeight: FontWeight.bold,
                   fntSize: width * 0.045,
                   content: "ORDER NOW"),

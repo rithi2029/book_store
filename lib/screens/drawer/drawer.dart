@@ -15,6 +15,21 @@ class DrawerScreen extends StatefulWidget {
 }
 
 class _DrawerScreenState extends State<DrawerScreen> {
+  Color themeColor = Colors.white;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    GlobalColors().colorTheme().then((value) {
+      setState(() {
+        themeColor = value;
+      });
+      // do functions requiring value parameter
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -36,7 +51,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     Icons.home,
                     color: GlobalColors.white,
                   ),
-                  tileColor: GlobalColors.primaryColor,
+                  tileColor: themeColor,
                   textColor: GlobalColors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)),
@@ -63,7 +78,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     Icons.person,
                     color: GlobalColors.white,
                   ),
-                  tileColor: GlobalColors.primaryColor,
+                  tileColor: themeColor,
                   textColor: GlobalColors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)),
@@ -87,7 +102,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     Icons.settings,
                     color: GlobalColors.white,
                   ),
-                  tileColor: GlobalColors.primaryColor,
+                  tileColor: themeColor,
                   textColor: GlobalColors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)),
@@ -102,7 +117,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     Icons.person,
                     color: GlobalColors.white,
                   ),
-                  tileColor: GlobalColors.primaryColor,
+                  tileColor: themeColor,
                   textColor: GlobalColors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)),

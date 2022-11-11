@@ -13,10 +13,30 @@ import '../../widgets/app_bar.dart';
 import '../../widgets/text_wiget.dart';
 import '../wrapper/wrapper.dart';
 
-class ProductScreen extends StatelessWidget {
+class ProductScreen extends StatefulWidget {
   ProductScreen({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<ProductScreen> createState() => _ProductScreenState();
+}
+
+class _ProductScreenState extends State<ProductScreen> {
+  Color themeColor = Colors.white;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    GlobalColors().colorTheme().then((value) {
+      setState(() {
+        themeColor = value;
+      });
+      // do functions requiring value parameter
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +62,7 @@ class ProductScreen extends StatelessWidget {
                   child: Icon(
                     Icons.arrow_back,
                     size: height * 0.030,
-                    color: GlobalColors.primaryColor,
+                    color: themeColor,
                   ),
                 ),
                 content: "Product",
@@ -73,7 +93,7 @@ class ProductScreen extends StatelessWidget {
                   height: height * 0.05,
                   child: TextWidget(
                     content: "The Lord Of The Rings",
-                    textColors: GlobalColors.primaryColor,
+                    textColors: themeColor,
                     fontWeight: FontWeight.bold,
                     fntSize: 24,
                   ),
@@ -103,7 +123,7 @@ class ProductScreen extends StatelessWidget {
                           },
                         ),
                         TextWidget(
-                            textColors: GlobalColors.primaryColor,
+                            textColors: themeColor,
                             fontWeight: FontWeight.bold,
                             fntSize: 18,
                             content: "\$120"),
@@ -119,7 +139,7 @@ class ProductScreen extends StatelessWidget {
                           "This is more detailed description of the product you can write large description, this is lengthy description",
                       fntSize: 16,
                       fontWeight: FontWeight.w400,
-                      textColors: GlobalColors.primaryColor,
+                      textColors: themeColor,
                     ),
                   ),
                 ),
@@ -128,7 +148,7 @@ class ProductScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       TextWidget(
-                          textColors: GlobalColors.primaryColor,
+                          textColors: themeColor,
                           fontWeight: FontWeight.bold,
                           fntSize: 17,
                           content: "Category :"),
@@ -146,7 +166,7 @@ class ProductScreen extends StatelessWidget {
                                   offset: Offset(0, 3))
                             ]),
                         child: TextWidget(
-                            textColors: GlobalColors.primaryColor,
+                            textColors: themeColor,
                             fontWeight: FontWeight.normal,
                             fntSize: 16,
                             content: "Fantasy"),
@@ -184,7 +204,7 @@ class ProductScreen extends StatelessWidget {
                   child: Icon(
                     CupertinoIcons.minus_circle,
                     size: 16,
-                    color: GlobalColors.primaryColor,
+                    color: themeColor,
                   ),
                 ),
               ),
@@ -194,7 +214,7 @@ class ProductScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   fntSize: 15,
                   content: "01",
-                  textColors: GlobalColors.primaryColor,
+                  textColors: themeColor,
                 ),
               ),
               Container(
@@ -214,15 +234,14 @@ class ProductScreen extends StatelessWidget {
                   child: Icon(
                     CupertinoIcons.add_circled,
                     size: 16,
-                    color: GlobalColors.primaryColor,
+                    color: themeColor,
                   ),
                 ),
               )
             ],
           ),
           ElevatedButton.icon(
-            style: ElevatedButton.styleFrom(
-                backgroundColor: GlobalColors.primaryColor),
+            style: ElevatedButton.styleFrom(backgroundColor: themeColor),
             onPressed: () {},
             icon: Icon(CupertinoIcons.cart_badge_plus),
             label: TextWidget(

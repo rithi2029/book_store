@@ -35,9 +35,20 @@ class _WishListScreenState extends State<WishListScreen> {
     });
   }
 
+  Color themeColor = Colors.white;
+
   @override
   void initState() {
+    // TODO: implement initState
+    super.initState();
     getData();
+
+    GlobalColors().colorTheme().then((value) {
+      setState(() {
+        themeColor = value;
+      });
+      // do functions requiring value parameter
+    });
   }
 
   @override
@@ -64,7 +75,7 @@ class _WishListScreenState extends State<WishListScreen> {
                   child: Icon(
                     Icons.arrow_back,
                     size: height * 0.030,
-                    color: GlobalColors.primaryColor,
+                    color: themeColor,
                   ),
                 ),
                 content: "Wish List",
@@ -114,12 +125,12 @@ class _WishListScreenState extends State<WishListScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               TextWidget(
-                                  textColors: GlobalColors.primaryColor,
+                                  textColors: themeColor,
                                   fontWeight: FontWeight.bold,
                                   fntSize: 14,
                                   content: "Product Title"),
                               TextWidget(
-                                  textColors: GlobalColors.primaryColor,
+                                  textColors: themeColor,
                                   fontWeight: FontWeight.bold,
                                   fntSize: 15,
                                   content: "\$40"),
@@ -151,7 +162,7 @@ class _WishListScreenState extends State<WishListScreen> {
                                       child: Icon(
                                         CupertinoIcons.minus_circle,
                                         size: 16,
-                                        color: GlobalColors.primaryColor,
+                                        color: themeColor,
                                       ),
                                     ),
                                   ),
@@ -162,7 +173,7 @@ class _WishListScreenState extends State<WishListScreen> {
                                       fontWeight: FontWeight.bold,
                                       fntSize: 15,
                                       content: "01",
-                                      textColors: GlobalColors.primaryColor,
+                                      textColors: themeColor,
                                     ),
                                   ),
                                   Container(
@@ -183,7 +194,7 @@ class _WishListScreenState extends State<WishListScreen> {
                                       child: Icon(
                                         CupertinoIcons.add_circled,
                                         size: 16,
-                                        color: GlobalColors.primaryColor,
+                                        color: themeColor,
                                       ),
                                     ),
                                   )

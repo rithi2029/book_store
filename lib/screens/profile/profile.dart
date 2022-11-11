@@ -9,10 +9,30 @@ import 'package:flutter/material.dart';
 import '../../widgets/app_bar.dart';
 import '../../widgets/text_wiget.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   final drawer;
 
   const ProfileScreen({Key? key, this.drawer}) : super(key: key);
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  Color themeColor = Colors.white;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    GlobalColors().colorTheme().then((value) {
+      setState(() {
+        themeColor = value;
+      });
+      // do functions requiring value parameter
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,16 +51,16 @@ class ProfileScreen extends StatelessWidget {
               icon: Icon(
                 Icons.sort,
                 size: height * 0.030,
-                color: GlobalColors.primaryColor,
+                color: themeColor,
               ),
               content: "Book Store",
-              event: drawer),
+              event: widget.drawer),
         ),
         Container(
           width: width,
           height: height * 0.08,
-          decoration: const BoxDecoration(
-            color: GlobalColors.primaryColor,
+          decoration: BoxDecoration(
+            color: themeColor,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(10),
               topRight: Radius.circular(10),
@@ -56,7 +76,7 @@ class ProfileScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: GlobalColors.white,
                   border: Border.all(
-                    color: GlobalColors.primaryColor,
+                    color: themeColor,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -78,12 +98,12 @@ class ProfileScreen extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.only(right: 10),
                       child: InkWell(
-                        splashColor: GlobalColors.primaryColor,
+                        splashColor: themeColor,
                         mouseCursor: MouseCursor.uncontrolled,
                         onTap: () {},
-                        child: const Icon(
+                        child: Icon(
                           Icons.search_sharp,
-                          color: GlobalColors.primaryColor,
+                          color: themeColor,
                           size: 25,
                         ),
                       ),

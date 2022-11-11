@@ -38,9 +38,19 @@ class _CartScreenState extends State<CartScreen> {
     });
   }
 
+  Color themeColor = Colors.white;
+
   @override
   void initState() {
+    // TODO: implement initState
+    super.initState();
     getData();
+    GlobalColors().colorTheme().then((value) {
+      setState(() {
+        themeColor = value;
+      });
+      // do functions requiring value parameter
+    });
   }
 
   @override
@@ -67,7 +77,7 @@ class _CartScreenState extends State<CartScreen> {
                   child: Icon(
                     Icons.arrow_back,
                     size: height * 0.030,
-                    color: GlobalColors.primaryColor,
+                    color: themeColor,
                   ),
                 ),
                 content: "Cart",
@@ -99,7 +109,7 @@ class _CartScreenState extends State<CartScreen> {
                             value: "",
                             groupValue: "",
                             onChanged: (index) {},
-                            activeColor: GlobalColors.primaryColor,
+                            activeColor: themeColor,
                           ),
                         ),
                         Container(
@@ -119,12 +129,12 @@ class _CartScreenState extends State<CartScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               TextWidget(
-                                  textColors: GlobalColors.primaryColor,
+                                  textColors: themeColor,
                                   fontWeight: FontWeight.bold,
                                   fntSize: 14,
                                   content: "Product Title"),
                               TextWidget(
-                                  textColors: GlobalColors.primaryColor,
+                                  textColors: themeColor,
                                   fontWeight: FontWeight.bold,
                                   fntSize: 15,
                                   content: "\$40"),
@@ -158,7 +168,7 @@ class _CartScreenState extends State<CartScreen> {
                                       child: Icon(
                                         CupertinoIcons.minus_circle,
                                         size: 16,
-                                        color: GlobalColors.primaryColor,
+                                        color: themeColor,
                                       ),
                                     ),
                                   ),
@@ -169,7 +179,7 @@ class _CartScreenState extends State<CartScreen> {
                                       fontWeight: FontWeight.bold,
                                       fntSize: 15,
                                       content: "01",
-                                      textColors: GlobalColors.primaryColor,
+                                      textColors: themeColor,
                                     ),
                                   ),
                                   Container(
@@ -190,7 +200,7 @@ class _CartScreenState extends State<CartScreen> {
                                       child: Icon(
                                         CupertinoIcons.add_circled,
                                         size: 16,
-                                        color: GlobalColors.primaryColor,
+                                        color: themeColor,
                                       ),
                                     ),
                                   )
@@ -224,7 +234,7 @@ class _CartScreenState extends State<CartScreen> {
                 Container(
                   padding: EdgeInsets.all(2),
                   decoration: BoxDecoration(
-                      color: GlobalColors.primaryColor,
+                      color: themeColor,
                       borderRadius: BorderRadius.circular(50)),
                   child: Icon(
                     Icons.add,
@@ -235,7 +245,7 @@ class _CartScreenState extends State<CartScreen> {
                 Padding(
                   padding: const EdgeInsets.only(left: 4.0),
                   child: TextWidget(
-                      textColors: GlobalColors.primaryColor,
+                      textColors: themeColor,
                       fontWeight: FontWeight.bold,
                       fntSize: 13,
                       content: "Add Coupen Code "),
@@ -246,12 +256,12 @@ class _CartScreenState extends State<CartScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextWidget(
-                    textColors: GlobalColors.primaryColor,
+                    textColors: themeColor,
                     fontWeight: FontWeight.bold,
                     fntSize: 18,
                     content: "Total :"),
                 TextWidget(
-                    textColors: GlobalColors.primaryColor,
+                    textColors: themeColor,
                     fontWeight: FontWeight.bold,
                     fntSize: 18,
                     content: "\$ 120"),
@@ -259,7 +269,7 @@ class _CartScreenState extends State<CartScreen> {
             ),
             ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                  backgroundColor: GlobalColors.primaryColor,
+                  backgroundColor: themeColor,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
                   minimumSize: Size(width, height * 0.05)),
